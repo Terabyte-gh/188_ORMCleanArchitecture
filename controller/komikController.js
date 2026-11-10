@@ -23,3 +23,14 @@ async function getKomikById(req, res) {
         res.status(500).json({ error: "Failed to fetch komik by id" });
     }
 }
+
+async function createKomik(req, res) {
+    const { judul, description, author } = req.body;
+    try {
+        const newKomik = await db.Komik.create({ judul, description, author });
+        res.status(201).json(newKomik);
+    } catch (err) {
+        console.error("error creating komik:", err.message);
+        res.status(500).json({ error: "Failed to create komik" });
+    }
+}
