@@ -7,14 +7,19 @@ const development = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     dialect: process.env.DB_DIALECT
-}
+};
 
 const production = {
-    use_env_variable: "DATABASE_URL",
+    use_env_variable: "POSTGRES_URL",
     dialect: "postgres",
     dialectOptions: {
         ssl: {
             rejectUnauthorized: false
         }
     }
-}
+};
+
+module.exports = {
+    development,
+    production
+};
