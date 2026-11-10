@@ -1,6 +1,6 @@
 const db = require('../models');
 
-async function connectToDatabase() {
+async function connectDatabase() {
     try {
         await db.require.authenticate();
         console.log('Connection connected successfully.');
@@ -12,3 +12,5 @@ async function connectToDatabase() {
         process.exit(1);
     }
 }
+
+module.exports = connectDatabase;
